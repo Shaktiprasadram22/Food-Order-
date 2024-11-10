@@ -1,268 +1,415 @@
 /* 
     Author: Vijay Thapa;
-    Theme: Restaurant Food Order;
-    version: 1.0;
+    Theme: Modern Restaurant Food Order (Updated Colors);
+    Version: 1.2;
 */
 
-/* CSS for All */
-*{
-    margin: 0 0;
-    padding: 0 0;
-    font-family: Arial, Helvetica, sans-serif;
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
-.container{
-    width: 80%;
+
+body {
+  background-color: #f0f8ff; /* Light background */
+  color: #333;
+}
+
+/* Container */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 3%;
+}
+
+/* Responsive Images */
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.img-curve {
+  border-radius: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.img-curve:hover {
+  transform: scale(1.05);
+}
+
+/* Text Alignment */
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-white {
+  color: #fff;
+}
+
+/* Utility Classes */
+.clearfix {
+  clear: both;
+  float: none;
+}
+
+a {
+  color: #1e90ff; /* Change link color to blue */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4682b4; /* Hover color changes to steel blue */
+}
+
+/* Button Styling */
+.btn {
+  padding: 12px 20px;
+  border: none;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #1e90ff; /* Primary button blue */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #4682b4; /* Darker blue on hover */
+  transform: scale(1.05);
+}
+
+h2 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Float Containers */
+.float-container {
+  position: relative;
+}
+
+.float-text {
+  position: absolute;
+  bottom: 20px;
+  left: 40%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+/* Fieldset */
+fieldset {
+  border: 2px solid #fff;
+  margin: 4% 0;
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Success/Error Styles */
+.error {
+  padding: 1%;
+  color: red;
+  font-size: 1rem;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.success {
+  padding: 1%;
+  color: green;
+  font-size: 1rem;
+  background-color: rgba(0, 255, 0, 0.1);
+  border-radius: 5px;
+}
+
+/* Navbar */
+.logo {
+  width: 12%;
+  float: left;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: rotate(5deg);
+}
+
+.menu {
+  line-height: 60px;
+  float: right;
+  margin-right: 10%;
+}
+
+.menu ul {
+  list-style-type: none;
+}
+
+.menu ul li {
+  display: inline;
+  padding: 15px;
+  font-weight: 600;
+  position: relative;
+}
+
+.menu ul li:hover::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #1e90ff; /* Underline with primary blue */
+  bottom: 0;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+/* Food Search Section */
+.food-search {
+  background-image: url("../images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 10% 0;
+  text-align: center;
+  position: relative;
+}
+
+.food-search input[type="search"] {
+  width: 60%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: width 0.3s ease, box-shadow 0.3s ease;
+}
+
+.food-search input[type="search"]:focus {
+  width: 80%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Categories */
+.categories {
+  display: flex;
+  justify-content: space-between;
+  padding: 4% 0;
+}
+
+.box-3 {
+  width: 30%;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.box-3:hover {
+  transform: translateY(-10px);
+}
+
+/* Food Menu */
+.food-menu {
+  background-color: #ececec;
+  padding: 5% 0;
+}
+
+.food-menu-box {
+  width: 48%;
+  padding: 20px;
+  float: left;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2%;
+  transition: transform 0.3s ease;
+}
+
+.food-menu-box:hover {
+  transform: scale(1.05);
+}
+
+.food-menu-img {
+  width: 30%;
+  float: left;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.food-menu-desc {
+  width: 65%;
+  float: left;
+}
+
+.food-price {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.food-detail {
+  font-size: 1rem;
+  color: #747d8c;
+  line-height: 1.5;
+}
+
+/* Social Media Links */
+.social ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.social ul li {
+  display: inline;
+  padding: 0 15px;
+}
+
+.social ul li a {
+  color: #1e90ff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social ul li a:hover {
+  color: #4682b4; /* Hover color for social links */
+}
+
+/* Order Section */
+.order {
+  width: 50%;
+  margin: 0 auto;
+  padding: 2%;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 4%;
+}
+
+.input-responsive {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 3%;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-responsive:focus {
+  border-color: #1e90ff;
+  box-shadow: 0 4px 10px rgba(30, 144, 255, 0.3);
+}
+
+/* Media Queries for Mobile */
+@media only screen and (max-width: 768px) {
+  .logo {
+    width: 50%;
     margin: 0 auto;
-    padding: 1%;
-}
-.img-responsive{
-    width: 100%;
-}
-.img-curve{
-    border-radius: 15px;
-}
-
-.text-right{
-    text-align: right;
-}
-.text-center{
-    text-align: center;
-}
-.text-left{
-    text-align: left;
-}
-.text-white{
-    color: white;
-}
-
-.clearfix{
-    clear: both;
     float: none;
-}
+  }
 
-a{
-    color: #ff6b81;
-    text-decoration: none;
-}
-a:hover{
-    color: #ff4757;
-}
+  .menu ul {
+    text-align: center;
+  }
 
-.btn{
-    padding: 1%;
-    border: none;
-    font-size: 1rem;
-    border-radius: 5px;
-}
-.btn-primary{
-    background-color: #ff6b81;
-    color: white;
-    cursor: pointer;
-}
-.btn-primary:hover{
-    color: white;
-    background-color: #ff4757;
-}
-h2{
-    color: #2f3542;
-    font-size: 2rem;
-    margin-bottom: 2%;
-}
-h3{
-    font-size: 1.5rem;
-}
-.float-container{
-    position: relative;
-}
-.float-text{
-    position: absolute;
-    bottom: 50px;
-    left: 40%;
-}
-fieldset{
-    border: 1px solid white;
-    margin: 5%;
-    padding: 3%;
-    border-radius: 5px;
-}
+  .food-search input[type="search"] {
+    width: 80%;
+    padding: 12px;
+    margin-bottom: 5%;
+  }
 
-.error{
-    padding: 2%;
-    color: red;
-}
-.success{
-    padding: 2%;
-    color: green;
-}
+  .btn {
+    width: 90%;
+    padding: 15px;
+  }
 
+  .categories {
+    flex-direction: column;
+  }
 
-/* CSSS for navbar section */
+  .box-3 {
+    width: 90%;
+    margin: 2% auto;
+  }
 
-.logo{
-    width: 10%;
-    float: left;
-}
-.menu{
-    line-height: 60px;
-}
-.menu ul{
-    list-style-type: none;
-}
+  .food-menu-box {
+    width: 100%;
+    padding: 10%;
+    margin-bottom: 5%;
+  }
 
-.menu ul li{
-    display: inline;
-    padding: 1%;
-    font-weight: bold;
-}
+  /* Modern and Sleek Theme (Black, White, Neon) */
 
+  /* Dark Mode Styles */
+  body {
+    background-color: #121212; /* Dark background */
+    color: #fff;
+  }
 
-/* CSS for Food SEarch Section */
-
-.food-search{
-    background-image: url(../images/bg.jpg);
+  /* Full-screen Image Background with Parallax */
+  .parallax {
+    background-image: url("../images/bg.jpg");
+    background-attachment: fixed;
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
-    padding: 7% 0;
-}
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.food-search input[type="search"]{
-    width: 50%;
-    padding: 1%;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-}
-
-
-/* CSS for Categories */
-.categories{
-    padding: 4% 0;
-}
-
-.box-3{
-    width: 28%;
-    float: left;
-    margin: 2%;
-}
-
-
-/* CSS for Food Menu */
-.food-menu{
-    background-color: #ececec;
-    padding: 4% 0;
-}
-.food-menu-box{
-    width: 43%;
-    margin: 1%;
-    padding: 2%;
-    float: left;
-    background-color: white;
-    border-radius: 15px;
-}
-
-.food-menu-img{
-    width: 20%;
-    float: left;
-}
-
-.food-menu-desc{
-    width: 70%;
-    float: left;
-    margin-left: 8%;
-}
-
-.food-price{
-    font-size: 1.2rem;
-    margin: 2% 0;
-}
-.food-detail{
-    font-size: 1rem;
-    color: #747d8c;
-}
-
-
-/* CSS for Social */
-.social ul{
-    list-style-type: none;
-}
-.social ul li{
-    display: inline;
-    padding: 1%;
-}
-
-/* for Order Section */
-.order{
-    width: 50%;
-    margin: 0 auto;
-}
-.input-responsive{
-    width: 96%;
-    padding: 1%;
-    margin-bottom: 3%;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-.order-label{
-    margin-bottom: 1%; 
+  .parallax h1 {
+    color: #00ff00; /* Neon Green text */
+    font-size: 3rem;
     font-weight: bold;
-}
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
 
+  .dark-mode-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 
+  .dark-mode-btn:hover {
+    background-color: #4682b4; /* Darker blue on hover */
+  }
 
-/* CSS for Mobile Size or Smaller Screen */
-
-@media only screen and (max-width:768px){
-    .logo{
-        width: 80%;
-        float: none;
-        margin: 1% auto;
-    }
-
-    .menu ul{
-        text-align: center;
-    }
-
-    .food-search input[type="search"]{
-        width: 90%;
-        padding: 2%;
-        margin-bottom: 3%;
-    }
-
-    .btn{
-        width: 91%;
-        padding: 2%;
-    }
-
-    .food-search{
-        padding: 10% 0;
-    }
-
-    .categories{
-        padding: 20% 0;
-    }
-    h2{
-        margin-bottom: 10%;
-    }
-    .box-3{
-        width: 100%;
-        margin: 4% auto;
-    }
-
-    .food-menu{
-        padding: 20% 0;
-    }
-
-    .food-menu-box{
-        width: 90%;
-        padding: 5%;
-        margin-bottom: 5%;
-    }
-    .social{
-        padding: 5% 0;
-    }
-    .order{
-        width: 100%;
-    }
+  /* Neon Accents */
+  .neon-text {
+    color: #ff4500; /* Neon Orange */
+    text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 30px #ff4500;
+  }
 }
